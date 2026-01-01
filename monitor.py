@@ -14,9 +14,11 @@ STATE_FILE = "state.json"
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; EditaisMonitor/1.0)"}
 
+
 def load_sources():
     with open(SOURCES_FILE, "r", encoding="utf-8") as f:
         return json.load(f)["sources"]
+
 
 def load_state():
     if not os.path.exists(STATE_FILE):
@@ -24,17 +26,21 @@ def load_state():
     with open(STATE_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
+
 def save_state(state):
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, ensure_ascii=False, indent=2)
 
+
 def sha(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
 
 def fetch_page(url: str) -> str:
     r = requests.get(url, headers=HEADERS, timeout=30)
     r.raise_for_status()
     return r.text
+
 
 def extract_links(html: str, base_url: str):
     soup = BeautifulSoup(html, "html.parser")
@@ -44,12 +50,15 @@ def extract_links(html: str, base_url: str):
         text = " ".join(a.get_text(" ").split())
         if not text:
             continue
+
         if href.startswith("/"):
             from urllib.parse import urljoin
             href = urljoin(base_url, href)
+
         if href.startswith("http"):
             links.append((text[:140], href))
     return links
+
 
 def tg_send(text: str):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
@@ -66,12 +75,11 @@ def tg_send(text: str):
         print("TELEGRAM SEND -> chat_id:", chat_id, "status:", r.status_code, "resp:", r.text)
         r.raise_for_status()
 
+
 def main():
+    # Envio de teste SEMPRE (para confirmar que o Telegram está funcionando)
     now = datetime.now().strftime("%d/%m/%Y %H:%M")
     tg_send(f"✅ TESTE: monitor rodou ({now}).")
-
-    sources = load_sources()
-    ...
 
     sources = load_sources()
     state = load_state()
@@ -92,7 +100,10 @@ def main():
 
             links = extract_links(html, url)
             keywords = ["edital", "chamamento", "seleção", "oportunidade", "retificação", "prorrogação"]
-            candidates = [(t, h) for (t, h) in links if any(k in t.lower() for k in keywords) or any(k in h.lower() for k in keywords)]
+            candidates = [
+                (t, h) for (t, h) in links
+                if any(k in t.lower() for k in keywords) or any(k in h.lower() for k in keywords)
+            ]
             if not candidates:
                 candidates = links[:10]
 
@@ -121,15 +132,10 @@ def main():
         for (src, title, link) in new_items[:15]:
             msg_lines.append(f"• {src}: {title}\n  {link}")
         tg_send("\n".join(msg_lines))
-
-    if new_items:
-        now = datetime.now().strftime("%d/%m/%Y %H:%M")
-        msg_lines = [f"🔎 Novidades detectadas ({now})", ""]
-        for (src, title, link) in new_items[:15]:
-            msg_lines.append(f"• {src}: {title}\n  {link}")
-        tg_send("\n".join(msg_lines))
     else:
         now = datetime.now().strftime("%d/%m/%Y %H:%M")
         tg_send(f"✅ Monitor rodou ({now}) e não encontrou novidades nas fontes.")
-# COMMIT TESTE
 
+
+if __name__ == "__main__":
+    main()
