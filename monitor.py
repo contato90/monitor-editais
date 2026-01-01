@@ -54,11 +54,17 @@ def extract_links(html: str, base_url: str):
 def tg_send(text: str):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     for chat_id in CHAT_IDS:
-        requests.post(
+        r = requests.post(
             url,
-            json={"chat_id": chat_id, "text": text, "disable_web_page_preview": True},
+            json={
+                "chat_id": chat_id,
+                "text": text,
+                "disable_web_page_preview": True
+            },
             timeout=30
         )
+        print("TELEGRAM SEND -> chat_id:", chat_id, "status:", r.status_code, "resp:", r.text)
+        r.raise_for_status()
 
 def main():
     sources = load_sources()
