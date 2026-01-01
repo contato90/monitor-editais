@@ -67,6 +67,12 @@ def tg_send(text: str):
         r.raise_for_status()
 
 def main():
+    now = datetime.now().strftime("%d/%m/%Y %H:%M")
+    tg_send(f"✅ TESTE: monitor rodou ({now}).")
+
+    sources = load_sources()
+    ...
+
     sources = load_sources()
     state = load_state()
     seen = state.get("seen", {})
