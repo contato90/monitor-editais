@@ -131,4 +131,5 @@ def main():
     else:
         now = datetime.now().strftime("%d/%m/%Y %H:%M")
         tg_send(f"✅ Monitor rodou ({now}) e não encontrou novidades nas fontes.")
+# COMMIT TESTE
 
