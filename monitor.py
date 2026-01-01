@@ -110,5 +110,13 @@ def main():
             msg_lines.append(f"• {src}: {title}\n  {link}")
         tg_send("\n".join(msg_lines))
 
-if __name__ == "__main__":
-    main()
+    if new_items:
+        now = datetime.now().strftime("%d/%m/%Y %H:%M")
+        msg_lines = [f"🔎 Novidades detectadas ({now})", ""]
+        for (src, title, link) in new_items[:15]:
+            msg_lines.append(f"• {src}: {title}\n  {link}")
+        tg_send("\n".join(msg_lines))
+    else:
+        now = datetime.now().strftime("%d/%m/%Y %H:%M")
+        tg_send(f"✅ Monitor rodou ({now}) e não encontrou novidades nas fontes.")
+
