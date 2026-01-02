@@ -1,12 +1,34 @@
 {
   "sources": [
-    {
-      "name": "MTE - Economia Solidária",
-      "url": "https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/economia-solidaria/editais-e-chamamentos-publicos"
-    },
-    {
-      "name": "FUNBIO - Oportunidades",
-      "url": "https://www.funbio.org.br/oportunidades/"
-    }
+
+    { "name": "DF • Portal Parcerias (MROSC DF)", "url": "https://www.parcerias.df.gov.br/" },
+    { "name": "DF • DODF (busca editais)", "url": "https://www.dodf.df.gov.br/" },
+    { "name": "DF • Secretaria de Cultura DF", "url": "https://www.cultura.df.gov.br/editais-abertos-1/" },
+    { "name": "DF • SEDES DF", "url": "https://www.sedes.df.gov.br/editais-de-chamamento-publico-2/" },
+
+    { "name": "Brasil • Transferegov", "url": "https://www.gov.br/transferegov/pt-br" },
+    { "name": "Brasil • Ministério da Cultura", "url": "https://www.gov.br/cultura/pt-br/assuntos/editais" },
+    { "name": "Brasil • FUNARTE", "url": "https://www.gov.br/funarte/pt-br/assuntos/editais" },
+    { "name": "Brasil • PNAB / Aldir Blanc", "url": "https://www.gov.br/cultura/pt-br/assuntos/pnab" },
+    { "name": "Brasil • Programa Nacional Comitês de Cultura", "url": "https://www.gov.br/cultura/pt-br/assuntos/comites-de-cultura" },
+
+    { "name": "Brasil • ABDI", "url": "https://www.abdi.com.br/editais" },
+    { "name": "Brasil • Agência de Inovação UFT", "url": "https://www.uft.edu.br/innovation" },
+
+    { "name": "Estatais • Petrobras", "url": "https://petrobras.com.br/sustentabilidade/patrocinios/" },
+    { "name": "Estatais • Correios", "url": "https://www.correios.com.br/sobre-correios/patrocinios" },
+    { "name": "Estatais • Caixa", "url": "https://www.caixa.gov.br/sobre-a-caixa/patrocinios/Paginas/default.aspx" },
+    { "name": "Estatais • Banco do Brasil", "url": "https://www.bb.com.br/site/patrocinios" },
+
+    { "name": "Fundações • Fundação Banco do Brasil", "url": "https://fbb.org.br/pt-br/editais" },
+    { "name": "Fundações • Itaú Cultural", "url": "https://www.itaucultural.org.br/editais" },
+    { "name": "Fundações • Fundação Lemann", "url": "https://fundacaolemann.org.br/editais" },
+
+    { "name": "Plataformas • Prosas", "url": "https://prosas.com.br/editais" },
+    { "name": "Plataformas • Plataforma Conjunta (Cultura)", "url": "https://plataformaconjunta.org.br/" },
+    { "name": "Plataformas • Mapa das OSC", "url": "https://mapaosc.ipea.gov.br/editais" },
+
+    { "name": "Internacional • UNDP / GEF SGP", "url": "https://sgp.undp.org/" },
+    { "name": "Internacional • União Europeia (Funding)", "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-search" }
   ]
 }
