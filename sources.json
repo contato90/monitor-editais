@@ -1,8 +1,6 @@
 {
   "sources": [
-
     { "name": "DF • Portal Parcerias (MROSC DF)", "url": "https://www.parcerias.df.gov.br/" },
-    { "name": "DF • DODF (busca editais)", "url": "https://www.dodf.df.gov.br/" },
     { "name": "DF • Secretaria de Cultura DF", "url": "https://www.cultura.df.gov.br/editais-abertos-1/" },
     { "name": "DF • SEDES DF", "url": "https://www.sedes.df.gov.br/editais-de-chamamento-publico-2/" },
 
